@@ -1,0 +1,40 @@
+[package]
+name = "serial_pipe"
+version = "0.1.0"
+edition = "2021"
+authors = ["KizzyCode Software Labs./Keziah Biermann <development@kizzycode.de>"]
+keywords = []
+categories = ["serial"]
+description = "`SerialPipe` is a simple program that can be used to read from/write to a serial device node"
+license = "BSD-2-Clause OR MIT"
+repository = "https://github.com/KizzyCode/SerialPipe-rust"
+readme = "README.md"
+build = "build.rs"
+
+
+[[bin]]
+name = "spipe"
+path = "src/main.rs"
+
+
+[badges]
+appveyor = { repository = "KizzyCode/SerialPipe-rust" }
+
+
+[features]
+default = []
+
+
+[dependencies]
+ebacktrace = "0.4"
+signal-hook = "0.3"
+
+[build-dependencies]
+cc = "1.0"
+
+
+[profile.release]
+overflow-checks = true
+
+[profile.bench]
+overflow-checks = true
